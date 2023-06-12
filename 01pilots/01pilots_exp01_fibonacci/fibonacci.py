@@ -1,10 +1,11 @@
 import time
-
-from pathlib import Path
 import sys
-sys.path.append(str(Path(__file__).parent.parent.parent))
 
-from intpy.intpy import initialize_intpy, deterministic
+# from pathlib import Path
+# import sys
+# sys.path.append(str(Path(__file__).parent.parent.parent))
+
+from speedupy.intpy import initialize_intpy, deterministic
 
 
 @deterministic
