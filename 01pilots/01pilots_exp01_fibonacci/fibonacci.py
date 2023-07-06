@@ -5,8 +5,8 @@ import sys
 # import sys
 # sys.path.append(str(Path(__file__).parent.parent.parent))
 
-from speedupy.intpy import initialize_intpy, deterministic
-#from intpy import initialize_intpy, deterministic
+#from speedupy.intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
 
 @deterministic
