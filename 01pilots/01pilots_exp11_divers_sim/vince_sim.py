@@ -5,7 +5,7 @@ import datetime as dt
 
 from pathlib import Path
 import sys
-sys.path.append(str(Path(__file__).parent.parent.parent))
+#sys.path.append(str(Path(__file__).parent.parent.parent))
 
 from intpy.intpy import initialize_intpy, deterministic
 
@@ -34,11 +34,16 @@ def count_shared_mutations(sims):
         num_shared = len(set(p1).intersection(set(p2)))
         counts[num_shared] += num_shared
     return counts
+
+@initialize_intpy(__file__)
+def main(n):
+    return count_shared_mutations(n)
  
 if __name__ == "__main__":
     x = repeat_mutation_sim(1e6, 12162, 156)
     t1 = dt.datetime.now()
-    shared_counts = count_shared_mutations(x)
+    shared_counts = main(x)
     t2 = dt.datetime.now()
     print("took", (t2 - t1).seconds, "seconds to do pairwise comparisons")
     print(shared_counts)
+
