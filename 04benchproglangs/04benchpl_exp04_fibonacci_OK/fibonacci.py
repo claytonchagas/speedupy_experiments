@@ -3,7 +3,7 @@
 import sys
 import time
 
-from intpy.intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
 @deterministic
 def iterative_fibonacci(n):
@@ -42,7 +42,6 @@ def main():
     t2 = time.perf_counter()
     print(t1-t0)
     print(t2-t1)
-    print('')
 
 if __name__ == '__main__':
     main()
