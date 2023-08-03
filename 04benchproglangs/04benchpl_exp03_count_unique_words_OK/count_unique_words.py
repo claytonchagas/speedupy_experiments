@@ -3,7 +3,7 @@
 from collections import defaultdict
 import sys
 import time
-from intpy.intpy import deterministic, initialize_intpy
+from intpy import deterministic, initialize_intpy
 
 punctuation_characters = "~`!@#$%^&*()_-+=[{]}\|;:',<.>/?1234567890"
 
@@ -48,7 +48,6 @@ def main():
     t2 = time.perf_counter()
     print(t1-t0)
     print(t2-t1)
-    print('')
 
 if __name__ == "__main__":
     main()
