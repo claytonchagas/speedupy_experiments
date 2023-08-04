@@ -112,11 +112,11 @@ def main1(num_points):
 
 if __name__ == '__main__':
     num_points = int(sys.argv[1])
-    print('LOOP')
+    #print('LOOP')
     dti = time.perf_counter()
     main0(num_points)
     print(time.perf_counter() - dti)
-    print('VECTOR')
+    #print('VECTOR')
     dti = time.perf_counter()
     main1(num_points)
     print(time.perf_counter() - dti)
