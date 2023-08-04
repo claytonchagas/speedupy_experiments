@@ -5,7 +5,7 @@ import sys
 
 import time
 
-from intpy.intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
 #--------------------------------
 # Function: matrix_multiplication
