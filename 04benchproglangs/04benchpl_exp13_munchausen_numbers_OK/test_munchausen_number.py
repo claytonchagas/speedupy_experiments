@@ -1,5 +1,5 @@
 
-from intpy.intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
 import time
 
