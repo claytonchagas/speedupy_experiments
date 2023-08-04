@@ -1,7 +1,7 @@
 import sys
 import time
 
-from intpy.intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
 @deterministic
 def is_prime_number(n):
