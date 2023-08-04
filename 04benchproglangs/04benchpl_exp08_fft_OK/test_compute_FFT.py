@@ -8,7 +8,7 @@ import sys
 import time
 
 #import benchmark_decorator as dectimer
-from intpy.intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
 #@dectimer.bench_time(3)
 @deterministic
