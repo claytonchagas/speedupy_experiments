@@ -1,11 +1,9 @@
 import time
 import math
-
+from memoizer.DecoratorFactoryInstance import factory
 from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).parent.parent.parent))
-
-from intpy import initialize_intpy, deterministic
 
 # Default settings
 curve_distance_epsilon        = 1e-30
@@ -194,7 +192,7 @@ def cubic_recursive( points, x1, y1, x2, y2, x3, y3, x4, y4, level=0):
 #p4 = (7,5)
 
 
-@deterministic
+@factory.decorator
 def cubic( p1, p2, p3, p4 ):
     x1,y1 = p1
     x2,y2 = p2
@@ -211,13 +209,12 @@ def cubic( p1, p2, p3, p4 ):
     return points
 
 
-@initialize_intpy(__file__)
 def main(n1, n2, n3, n4, n5, n6, n7, n8):
     p1 = (n1,n2)
     p2 = (n3,n4)
     p3 = (n5,n6)
     p4 = (n7,n8)
-    print(cubic( p1, p2, p3, p4 ))
+    print cubic( p1, p2, p3, p4 )
 
 
 if __name__ == "__main__":
@@ -230,6 +227,6 @@ if __name__ == "__main__":
     n7 = int(sys.argv[7])
     n8 = int(sys.argv[8])
     
-    start = time.perf_counter()
+    start = time.time()
     main(n1, n2, n3, n4, n5, n6, n7, n8)
-    print(time.perf_counter()-start)
+    print time.time()-start
