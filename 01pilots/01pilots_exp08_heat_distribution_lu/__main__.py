@@ -9,7 +9,7 @@ from model import Model
 #4Win mode: SET PYTHONPATH='path/to/directory'
 #echo $PYTHONPATH
 
-from intpy.intpy import initialize_intpy
+from intpy import initialize_intpy
 import time
 
 
