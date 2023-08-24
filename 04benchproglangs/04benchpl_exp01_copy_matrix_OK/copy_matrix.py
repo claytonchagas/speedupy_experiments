@@ -31,7 +31,7 @@ if len(sys.argv) < 1:
     print('Please specify matrix dimensions')
     sys.exit()
 
-initialize_intpy(__file__)
+@initialize_intpy(__file__)
 def main():
     dimension = int(sys.argv[1])
     A = np.random.rand(dimension, dimension, 3)
