@@ -1,8 +1,11 @@
 import time
 
-from pathlib import Path
+import os
 import sys
-sys.path.append(str(Path(__file__).parent.parent.parent))
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(script_dir, '..', '..', '..'))
+sys.path.append(parent_dir)
 
 from memoizer.DecoratorFactoryInstance import factory
 
