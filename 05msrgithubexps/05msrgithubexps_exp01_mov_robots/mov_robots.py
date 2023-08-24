@@ -146,17 +146,17 @@ def finalVisualization(x_left_wheel_right, y_left_wheel_right, x_left_wheel_left
 @initialize_intpy(__file__)
 def main():
     # STRAIGHT MOTION
-    X_left_wheel_straight = readData('Readings_robot_motion/straightWheelPositions.csv')[0][36:].split(',')
+    X_left_wheel_straight = readData('source/straightWheelPositions.csv')[0][36:].split(',')
     
     X_left_wheel_straight_new = typeConverter(X_left_wheel_straight, float)
 
-    Y_left_wheel_straight = readData('Readings_robot_motion/straightWheelPositions.csv')[1][36:].split(',')
+    Y_left_wheel_straight = readData('source/straightWheelPositions.csv')[1][36:].split(',')
     Y_left_wheel_straight_new = typeConverter(Y_left_wheel_straight, float)
 
-    X_right_wheel_straight = readData('Readings_robot_motion/straightWheelPositions.csv')[2][36:].split(',')
+    X_right_wheel_straight = readData('source/straightWheelPositions.csv')[2][36:].split(',')
     X_right_wheel_straight_new = typeConverter(X_right_wheel_straight, float)
 
-    Y_right_wheel_straight = readData('Readings_robot_motion/straightWheelPositions.csv')[3][36:].split(',')
+    Y_right_wheel_straight = readData('source/straightWheelPositions.csv')[3][36:].split(',')
     Y_right_wheel_straight_new = typeConverter(Y_right_wheel_straight, float)
 
     x_final_pose_straight, y_final_pose_straight = finalPoseEstimation('straight', X_left_wheel_straight_new,
@@ -164,32 +164,32 @@ def main():
                                                                        X_right_wheel_straight_new,
                                                                        Y_right_wheel_straight_new)
     # LEFT MOTION
-    X_left_wheel_left = readData('Readings_robot_motion/leftWheelPositions.csv')[0][32:].split(',')
+    X_left_wheel_left = readData('source/leftWheelPositions.csv')[0][32:].split(',')
     X_left_wheel_left_new = typeConverter(X_left_wheel_left, float)
 
-    Y_left_wheel_left = readData('Readings_robot_motion/leftWheelPositions.csv')[1][32:].split(',')
+    Y_left_wheel_left = readData('source/leftWheelPositions.csv')[1][32:].split(',')
     Y_left_wheel_left_new = typeConverter(Y_left_wheel_left, float)
 
-    X_right_wheel_left = readData('Readings_robot_motion/leftWheelPositions.csv')[2][32:].split(',')
+    X_right_wheel_left = readData('source/leftWheelPositions.csv')[2][32:].split(',')
     X_right_wheel_left_new = typeConverter(X_right_wheel_left, float)
 
-    Y_right_wheel_left = readData('Readings_robot_motion/leftWheelPositions.csv')[3][32:].split(',')
+    Y_right_wheel_left = readData('source/leftWheelPositions.csv')[3][32:].split(',')
     Y_right_wheel_left_new = typeConverter(Y_right_wheel_left, float)
 
     x_final_pose_left, y_final_pose_left = finalPoseEstimation('left', X_left_wheel_left_new, Y_left_wheel_left_new,
                                                                X_right_wheel_left_new, Y_right_wheel_left_new)
 
     # RIGHT MOTION
-    X_left_wheel_right = readData('Readings_robot_motion/rightWheelPositions.csv')[0][33:].split(',')
+    X_left_wheel_right = readData('source/rightWheelPositions.csv')[0][33:].split(',')
     X_left_wheel_right_new = typeConverter(X_left_wheel_right, float)
 
-    Y_left_wheel_right = readData('Readings_robot_motion/rightWheelPositions.csv')[1][33:].split(',')
+    Y_left_wheel_right = readData('source/rightWheelPositions.csv')[1][33:].split(',')
     Y_left_wheel_right_new = typeConverter(Y_left_wheel_right, float)
 
-    X_right_wheel_right = readData('Readings_robot_motion/rightWheelPositions.csv')[2][33:].split(',')
+    X_right_wheel_right = readData('source/rightWheelPositions.csv')[2][33:].split(',')
     X_right_wheel_right_new = typeConverter(X_right_wheel_right, float)
 
-    Y_right_wheel_right = readData('Readings_robot_motion/rightWheelPositions.csv')[3][33:].split(',')
+    Y_right_wheel_right = readData('source/rightWheelPositions.csv')[3][33:].split(',')
     Y_right_wheel_right_new = typeConverter(Y_right_wheel_right, float)
 
     x_final_pose_right, y_final_pose_right = finalPoseEstimation('right', X_left_wheel_right_new,
