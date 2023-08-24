@@ -17,7 +17,10 @@ def count_words_dictionary(file_name):
     dictionary = defaultdict(int)
     for word in open(file_name).read().split():
         dictionary[strip_word(word)] += 1
-    del dictionary['']
+    try:
+        del dictionary['']
+    except KeyError:
+        pass
     return len(dictionary)
 
 @deterministic 
@@ -27,8 +30,10 @@ def count_words_set(file_name):
         uniques = set()
         for line in lines:
             uniques |= set(strip_word(m) for m in line.split())
-    uniques.remove('')
-    #print(uniques)
+    try:
+        uniques.remove('')
+    except KeyError:
+        pass
     return len(uniques)
 
 
