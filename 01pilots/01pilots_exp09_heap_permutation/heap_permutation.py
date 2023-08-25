@@ -18,6 +18,7 @@ def heap_permutation(data, n):
             data[i], data[n - 1] = data[n - 1], data[i]
         else:
             data[0], data[n - 1] = data[n - 1], data[0]
+    return data
 
 
 @initialize_intpy(__file__)
