@@ -19,6 +19,7 @@ def compute_FFT(n):
     matrix = rn.rand(n, n) + 1j * rn.randn(n, n)
     result = np.fft.fft2(matrix)
     result = np.abs(result)
+    return result
 
 @initialize_intpy(__file__)
 def main(n):
