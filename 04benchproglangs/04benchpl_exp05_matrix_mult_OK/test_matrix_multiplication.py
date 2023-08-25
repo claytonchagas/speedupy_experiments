@@ -21,7 +21,7 @@ def matrix_multiplication(A, B):
 
 @initialize_intpy(__file__)
 def main(A,B):
-    print(matrix_multiplication(A, B))
+    matrix_multiplication(A, B)
 
 if __name__ == '__main__':
     N = int(sys.argv[1])
