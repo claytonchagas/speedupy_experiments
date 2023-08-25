@@ -1,26 +1,47 @@
-import time
-import sys
+#!/usr/bin/env python
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
+import sys
+import time
 
 from intpy import initialize_intpy, deterministic
 
-
 @deterministic
-def fib(n):
+def iterative_fibonacci(n):
     if n < 2:
         return n
-    return fib(n-1) + fib(n-2)
+    previous_fibonacci = 1
+    current_fibonacci = 1
+    for num in range(2, n):
+        previous_fibonacci, current_fibonacci = current_fibonacci, \
+            current_fibonacci + previous_fibonacci
+    return current_fibonacci
+
+
+@deterministic
+def recursive_fibonacci(n):
+    if n < 2:
+        return n
+    else:
+        return recursive_fibonacci(n-1) + recursive_fibonacci(n-2)
+
+
+if len(sys.argv) < 1:
+    print('Usage:')
+    print('     python ' + sys.argv[0] + ' N')
+    print('Please specify the number of iterations.')
+    sys.exit()
 
 
 @initialize_intpy(__file__)
-def main(n):
-    print(fib(n))
+def main():
+    N = int(sys.argv[1])
+    t0 = time.perf_counter()
+    n1 = iterative_fibonacci(N)
+    t1 = time.perf_counter()
+    n2 = recursive_fibonacci(N)
+    t2 = time.perf_counter()
+    print(t1-t0)
+    print(t2-t1)
 
-
-if __name__ == "__main__":
-    n = int(sys.argv[1])
-    start = time.perf_counter()
-    main(n)
-    print(time.perf_counter()-start)
+if __name__ == '__main__':
+    main()
