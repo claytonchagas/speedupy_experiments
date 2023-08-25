@@ -16,6 +16,7 @@ def sqrt_matrix(A):
         Take the square root of matrix A
     """
     B = scipy.linalg.sqrtm(A)
+    return B
 
 @initialize_intpy(__file__)
 def main():
