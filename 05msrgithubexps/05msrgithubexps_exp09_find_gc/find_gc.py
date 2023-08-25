@@ -27,5 +27,5 @@ if __name__ == "__main__":
     with open(sys.argv[1]) as f:
         texto = "".join(f.readlines())
     start = time.perf_counter()
-    main(seq)
+    main(texto)
     print(time.perf_counter()-start)
