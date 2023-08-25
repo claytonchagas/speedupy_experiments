@@ -16,7 +16,8 @@ def matrix_multiplication(A, B):
     """
         Evaluate the dot product of matrices A and B using numpy
     """
-    C = np.dot(A, B)
+    return np.dot(A, B)
+    
 
 @initialize_intpy(__file__)
 def main(A,B):
