@@ -28,7 +28,7 @@ def compute_quadrature(n):
     # Translate x values from the interval [-1, 1] to [a, b]
     t = 0.5*(x + 1)*(b - a) + a
 
-    gauss = sum(w * integrand(t)) * 0.5*(b - a)
+    return sum(w * integrand(t)) * 0.5*(b - a)
 
 
 @initialize_intpy(__file__)
