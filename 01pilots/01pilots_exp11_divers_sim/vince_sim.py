@@ -1,7 +1,7 @@
 import numpy as np
 from itertools import combinations
 from collections import Counter
-import datetime as dt
+import time
 
 from pathlib import Path
 import sys
@@ -28,9 +28,9 @@ def count_shared_mutations(sims):
     counts = Counter()
     i = 0
     for p1, p2 in combinations(sims, 2):
-        if i % 10000000 == 0:
-            print("\ttotal pairs counted: %d\n" % i, end=' ')
-        i += 1
+        # if i % 10000000 == 0:
+        #     print("\ttotal pairs counted: %d\n" % i, end=' ')
+        # i += 1
         num_shared = len(set(p1).intersection(set(p2)))
         counts[num_shared] += num_shared
     return counts
@@ -41,9 +41,7 @@ def main(n):
  
 if __name__ == "__main__":
     x = repeat_mutation_sim(1e6, 12162, 156)
-    t1 = dt.datetime.now()
+    t1 = time.perf_counter()
     shared_counts = main(x)
-    t2 = dt.datetime.now()
-    print("took", (t2 - t1).seconds, "seconds to do pairwise comparisons")
-    print(shared_counts)
+    print(time.perf_counter()-t1)
 
