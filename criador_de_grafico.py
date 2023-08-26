@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 from gen_data_from_raw import gen_data_from_raw
@@ -55,6 +56,7 @@ def create_graph(data, title):
     plt.clf()
 
 def main():
+    os.system("rm -rf results/*.png")
     f_data = gen_data_from_raw()
     n_data = gen_table_data(f_data)
     for ks in n_data:
