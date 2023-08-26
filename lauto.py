@@ -76,5 +76,5 @@ def main():
 if __name__ == '__main__':
     main()
 
-# 2d-ad-t é a versão que da P A U
+# 2d-ad-t é a versão que da ruim
 # as vezes 2d-ad

@@ -54,13 +54,12 @@ def create_graph(data, title):
     plt.savefig(f'./results/{title}.png', bbox_inches='tight')
     plt.clf()
 
-
-
 def main():
     f_data = gen_data_from_raw()
     n_data = gen_table_data(f_data)
     for ks in n_data:
         create_graph(n_data[ks], ks)
+        print(f"Done {ks}")
 
 
 if __name__ == '__main__':
