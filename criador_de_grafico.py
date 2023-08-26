@@ -51,9 +51,9 @@ def create_graph(data, title):
 
     plt.xticks(rotation=22)
     plt.tight_layout()
-    # plt.savefig(f'./results/{title}.png', bbox_inches='tight')
-    # plt.clf()
-    plt.show()
+    plt.savefig(f'./results/{title}.png', bbox_inches='tight')
+    plt.clf()
+
 
 
 def main():
@@ -61,8 +61,6 @@ def main():
     n_data = gen_table_data(f_data)
     for ks in n_data:
         create_graph(n_data[ks], ks)
-        #####
-        break
 
 
 if __name__ == '__main__':
