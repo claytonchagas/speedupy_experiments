@@ -9,12 +9,13 @@ FONTES: https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
 """
 
 from __future__ import division
-from scipy.linalg import eigh
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-from matplotlib.tri import Triangulation
 import numpy as np
-import matplotlib.pyplot as plt
+import time
+from pathlib import Path
+import sys
+sys.path.append(str(Path(__file__).parent.parent.parent))
+
+# from intpy import initialize_intpy, deterministic
 
 #E DETERMINISTICA
 def coulomb_matrix(n):
@@ -89,54 +90,24 @@ def hermite_functions(x,n):
 
     return psi 
 
-
-
+def main(x,n):
+    t0 = time.perf_counter()
+    hf = hermite_functions(x,2*n+1)
+    t1 = time.perf_counter()
+    C = coulomb_matrix(n)
+    t2 = time.perf_counter()
+    print(t1-t0)
+    print(t2-t1)
 
 if __name__ == '__main__':
-
-    x = np.linspace(-10,10,100)
-    yy,xx = np.meshgrid(x,x)
-
-    # Original coordinate system
-    Q1 = (xx+yy)/np.sqrt(2)
-    Q2 = (xx-yy)/np.sqrt(2)
-
-    n = 16
+    length = int(sys.argv[1])
+    n = int(sys.argv[2])
+    x = np.linspace(-length,length,100)
+    main(x,n)
     
-    # Compute Hermite functions
-    hf = hermite_functions(x,2*n+1)
- 
-    # Use anti-symmetric functions as basis
-    phi = hf[:,1::2] 
-
-    # Non-Coulombic part of Hamiltonian H0 = (K+Q)/2
-    H0 = np.diag((3+4*np.arange(n))/2)
-
-    # Coulombic part of Hamiltonian
-    C = coulomb_matrix(n)
-
-    # Total Hamiltonian 
-    H = H0 + C 
-
-    nu,Vhat = eigh(H)
     
-    # Evaluate antisymmetric Hermite-function series on grid 
-    V = np.dot(phi,Vhat)
 
-    # Create an eigenfunction to the two-particle problem
-    Psi = np.outer(hf[:,0],V[:,0]) 
-   
-    psi = Psi.flatten() 
-    q1 = Q1.flatten()
-    q2 = Q2.flatten()
 
-    dex = np.where((q1**2+q2**2)<10)[0]
-    tri = Triangulation(q2[dex],q1[dex])
-    fig = plt.figure(1)
-    ax =  fig.gca(projection='3d')
-    ax.plot_trisurf(tri,psi[dex], cmap=cm.jet, linewidth=0.2 ) 
-    ax.set_xlabel(r'$q_1$',fontsize=18)
-    ax.set_ylabel(r'$q_2$',fontsize=18)
-    plt.show(block=False)
+
 
   
