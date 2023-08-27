@@ -2,10 +2,11 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 from gen_data_from_raw import gen_data_from_raw
+import pandas as pd
+import sys
 
 labels = ['2d-ad-t', '1d-ow', '1d-ad', '2d-ad', 'ad', '2d-ad-f', '2d-ad-ft', '2d-lz', "--no-cache"]
 set_labels = ['md5', 'xxhash', 'murmur']
-
 
 def gen_table_data(f_data):
     n_data = {}
@@ -26,7 +27,7 @@ def gen_table_data(f_data):
     return n_data
 
 
-def create_graph(data, title):
+def create_graph(data, title,graph_num):
     x = np.arange(len(labels))
     width = 0.2
 
@@ -35,14 +36,9 @@ def create_graph(data, title):
     for i, set_label in enumerate(set_labels):
         ax.bar(x + i * width, data[:, i], width, label=set_label)
         for j, value in enumerate(data[:, i]):
-
             gp = value - max(data[:, i]) * 0.12 if value - max(data[:, i]) * 0.5 > 0 else value + max(data[:, i]) * 0.03
-            #ax.text(x[j] + i * width, value + 0.2, f'{value:.4f}', ha='center', va='bottom', rotation=90, fontsize=8)
-            #ax.text(x[j] + i * width, value + 0.2, f'{value:.2f}', ha='center', rotation=90, fontsize=8)
             ax.text(x[j] + i * width, gp, f'{value:.7f}', ha='center',rotation=90, fontsize=7)
-            # bars = ax.bar(x + i * width, data[:, i], width, label=set_label)
-            # ax.bar_label(bars, fmt='%.2f', label_type='edge')
-
+            
     ax.set_xlabel('Memos')
     ax.set_ylabel('Tempo em Segundos')
     ax.set_title(title)
@@ -52,16 +48,29 @@ def create_graph(data, title):
 
     plt.xticks(rotation=22)
     plt.tight_layout()
-    plt.savefig(f'./results/{title}.png', bbox_inches='tight')
+    plt.savefig(f'./results/{title}_{graph_num}.png', bbox_inches='tight')
     plt.clf()
 
+def create_table(table, ks):
+    table_data = pd.DataFrame(table, columns=set_labels, index=labels)
+    table_data.insert(0,ks,"       ")
+    print(table_data)
+
 def main():
-    os.system("rm -rf results/*.png")
-    f_data = gen_data_from_raw()
-    n_data = gen_table_data(f_data)
+    try:
+        graph_num = int(sys.argv[1])
+    except IndexError:
+        graph_num = 0
+
+    os.system(f"rm -rf results/*_{graph_num}.png")
+    f_data, min_param = gen_data_from_raw(graph_num) # Podemos inserir varios graficos a partir do argumento dado; como testar? fibos!
+    n_data            = gen_table_data(f_data)
+    storage, hash, memo, tm = min_param
     for ks in n_data:
-        create_graph(n_data[ks], ks)
+        create_table(n_data[ks],ks)
+        create_graph(n_data[ks],ks,graph_num)
         print(f"Done {ks}")
+    print(f'Champion: {storage} {hash} {memo} time: {tm}') if memo != "no-cache" else print(f"Champion: --no-cache time {tm}")
 
 
 if __name__ == '__main__':
