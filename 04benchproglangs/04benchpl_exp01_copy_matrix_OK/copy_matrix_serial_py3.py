@@ -3,7 +3,6 @@
 import numpy as np
 import sys
 import time
-from intpy import deterministic, initialize_intpy
 
 
 def serial_copy(A,dimension):
