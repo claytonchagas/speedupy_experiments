@@ -33,6 +33,6 @@ def main(F_solution):
 if __name__ == '__main__':
     F_solution = int(sys.argv[1])
     F_solution = F_solution/10
-    start = time.perf_counter()
+    start = time.time()
     main(F_solution)
-    print(time.perf_counter() - start)
+    print(time.time() - start)
