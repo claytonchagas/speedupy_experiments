@@ -72,6 +72,17 @@ def main():
         print(f"Done {ks}")
     print(f'Champion: {storage} {hash} {memo} time: {tm}') if memo != "no-cache" else print(f"Champion: --no-cache time {tm}")
 
+def main_with_save(graph_num = 0):
+    os.system(f"rm -rf results/*_{graph_num}.png")
+    f_data, min_param = gen_data_from_raw(graph_num) # Podemos inserir varios graficos a partir do argumento dado; como testar? fibos!
+    n_data            = gen_table_data(f_data)
+    storage, hash, memo, tm = min_param
+    for ks in n_data:
+        create_table(n_data[ks],ks)
+        create_graph(n_data[ks],ks,graph_num)
+        print(f"Done {ks}")
+    print(f'Champion: {storage} {hash} {memo} time: {tm}') if memo != "no-cache" else print(f"Champion: --no-cache time {tm}")
+    return min_param
 
 if __name__ == '__main__':
     main()
