@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import time
 from functools import lru_cache
 
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent / "speedupy"))
+
 iteration = np.linspace(1, 20, 20)
 iteration = iteration[np.newaxis, :]
 
