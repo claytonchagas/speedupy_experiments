@@ -3,10 +3,10 @@
 import numpy as np
 import sys
 import time
-from intpy import deterministic, initialize_intpy
+from numba import njit
 
 
-@deterministic
+@njit
 def serial_copy(A,dimension):
     B = np.random.rand(dimension, dimension, 3)
     N = A.shape[0]
@@ -23,7 +23,6 @@ if len(sys.argv) < 1:
     print('Please specify matrix dimensions')
     sys.exit()
 
-@initialize_intpy(__file__)
 def main():
     dimension = int(sys.argv[1])
     A = np.random.rand(dimension, dimension, 3)
