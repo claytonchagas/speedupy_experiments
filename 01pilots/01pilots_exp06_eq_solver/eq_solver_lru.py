@@ -3,6 +3,10 @@ import numpy as np
 from scipy.optimize import fsolve
 import time
 import sys
+
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent / "speedupy"))
+
 from intpy import initialize_intpy, deterministic
 # Define parameters
 
