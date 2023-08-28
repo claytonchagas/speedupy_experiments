@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
 
-from intpy import initialize_intpy, deterministic
+from functools import lru_cache
 # Define parameters
 
 T = 1
