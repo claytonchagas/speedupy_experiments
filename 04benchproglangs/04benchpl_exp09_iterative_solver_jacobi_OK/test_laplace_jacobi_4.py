@@ -1,10 +1,9 @@
 import sys
+
 from pathlib import Path
-new_path = (Path('__file__').resolve().parent.parent.parent / "speedupy/").__str__()
-sys.path.append(new_path)
+sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 import numpy as np
-
 import time
 
 from intpy import initialize_intpy, deterministic
