@@ -1,23 +1,12 @@
-"""
-FONTES: https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
-        https://docs.scipy.org/doc/numpy/reference/constants.html
-        https://stackoverflow.com/questions/31951980/what-exactly-does-numpy-exp-do/31952108
-        https://www.programiz.com/python-programming/array
-        https://stackoverflow.com/questions/509211/understanding-slice-notation
-        https://docs.scipy.org/doc/numpy/reference/generated/numpy.sqrt.html
-        https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html
-"""
-
 from __future__ import division
 import numpy as np
-import time
+import time, sys
 from pathlib import Path
-import sys
-sys.path.append(str(Path(__file__).parent.parent.parent))
+sys.path.append(str(Path(__file__).parent / "speedupy"))
 
-# from intpy import initialize_intpy, deterministic
+from intpy import initialize_intpy, deterministic
 
-#E DETERMINISTICA
+@deterministic
 def coulomb_matrix(n):
     """
     Compute the Coulomb interaction matrix which has matrix elements
@@ -73,7 +62,7 @@ def coulomb_matrix(n):
 
     return C
 
-#E DETERMINISTICA
+@deterministic
 def hermite_functions(x,n):
     """
     Evaluate the first n normalized Hermite functions on a grid x
@@ -90,6 +79,7 @@ def hermite_functions(x,n):
 
     return psi 
 
+@initialize_intpy(__file__)
 def main(x,n):
     t0 = time.perf_counter()
     hf = hermite_functions(x,2*n+1)
