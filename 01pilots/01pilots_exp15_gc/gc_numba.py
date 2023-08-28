@@ -1,8 +1,8 @@
-import sys
+import sys, time
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
 
-import time
+import numba as nb
 
 @nb.njit
 def find_gc(seq: str) -> float:
