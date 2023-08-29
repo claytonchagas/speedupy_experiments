@@ -6,8 +6,6 @@ from functools import lru_cache
 
 import time
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 
 ##integrand = lambda x: np.exp(x)
