@@ -4,9 +4,6 @@ import sys
 import time
 from functools import lru_cache
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
-
 
 @lru_cache(maxsize=100)
 def look_and_say_sequence(starting_sequence, n):
