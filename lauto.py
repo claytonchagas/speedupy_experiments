@@ -76,5 +76,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-# 2d-ad-t é a versão que da ruim
-# as vezes 2d-ad
+# Alguns problemas com 2d-ad-t
