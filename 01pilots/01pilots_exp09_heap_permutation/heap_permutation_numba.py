@@ -2,8 +2,6 @@ import time
 import sys
 from numba import njit
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 @njit
 def heap_permutation(data, n):
