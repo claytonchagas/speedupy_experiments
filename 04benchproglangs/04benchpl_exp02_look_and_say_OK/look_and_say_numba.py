@@ -4,9 +4,6 @@ import sys
 import time
 from numba import njit
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
-
 
 @njit
 def look_and_say_sequence(starting_sequence, n):
