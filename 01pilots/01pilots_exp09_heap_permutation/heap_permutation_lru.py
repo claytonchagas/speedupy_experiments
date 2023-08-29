@@ -2,8 +2,6 @@ import time
 import sys
 from functools import lru_cache
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 @lru_cache(maxsize=100)
 def heap_permutation(data, n):
