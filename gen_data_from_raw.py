@@ -67,7 +67,7 @@ def gen_data_from_raw(position=0):
             n, p = n, (n+1) + p
 
             one_data = sorted(lines[n+position::p])
-            # Se for do interesse do senhor, podemos printar max, min stand dev, mean, median
+            # Podemos printar max, min stand dev, mean, median
             
             #print(storage, hash, memo, one_data)
 
