@@ -3,10 +3,6 @@ import sys
 
 import time
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
-
-
 
 def f(x):
     return np.exp(np.sin(x[0]*5) - x[0]*x[0] - x[1]*x[1])
