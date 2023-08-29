@@ -3,6 +3,9 @@
 import numpy as np
 import sys
 
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent / "speedupy"))
+
 import time
 
 from intpy import initialize_intpy, deterministic
