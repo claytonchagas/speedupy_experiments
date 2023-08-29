@@ -11,7 +11,7 @@ def pow(n, m):
 
 
 def main(n, m):
-    print(pow(n, m))
+    pow(n, m)
 
 
 if __name__ == "__main__":
