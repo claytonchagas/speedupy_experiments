@@ -3,9 +3,6 @@ import sys
 
 import time
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
-
 
 
 def f(x):
