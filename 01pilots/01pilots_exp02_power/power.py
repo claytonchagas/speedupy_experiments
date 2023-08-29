@@ -1,9 +1,9 @@
 import time
 import sys
 
-# from pathlib import Path
-# import sys
-# sys.path.append(str(Path(__file__).parent.parent.parent))
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent / "speedupy"))
+
 
 # from intpy.intpy import initialize_intpy, deterministic
 from intpy import initialize_intpy, deterministic
