@@ -19,7 +19,6 @@ def main(n):
     #data = [1, 2, 3, 4, 5, 6]
     #data2 = list(range(8))
     data2 = list(range(n))
-    print(data2)
     start_time = time.perf_counter()
     heap_permutation(data2, len(data2))
     end_time = time.perf_counter()
