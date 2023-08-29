@@ -4,12 +4,9 @@ import sys
 
 import time
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
+from functools import lru_cache
 
-from intpy import initialize_intpy, deterministic
-
-@deterministic
+@lru_cache(maxsize=100)
 def belief_propagation(N):
     """
         Run the belief propagation algorithm N times
@@ -23,7 +20,6 @@ def belief_propagation(N):
         x -= np.log(np.sum(np.exp(x)))
     return x
 
-@initialize_intpy(__file__)
 def main(N):
     y = belief_propagation(N)
     

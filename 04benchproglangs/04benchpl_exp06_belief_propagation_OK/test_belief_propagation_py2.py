@@ -4,12 +4,8 @@ import sys
 
 import time
 
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent / "speedupy"))
-
 from intpy import initialize_intpy, deterministic
 
-@deterministic
 def belief_propagation(N):
     """
         Run the belief propagation algorithm N times
@@ -23,7 +19,6 @@ def belief_propagation(N):
         x -= np.log(np.sum(np.exp(x)))
     return x
 
-@initialize_intpy(__file__)
 def main(N):
     y = belief_propagation(N)
     
@@ -32,4 +27,4 @@ if __name__ == '__main__':
     N = int(sys.argv[1])
     dti = time.perf_counter()
     main(N)
-    print(time.perf_counter() - dti)
+    print time.perf_counter() - dti
