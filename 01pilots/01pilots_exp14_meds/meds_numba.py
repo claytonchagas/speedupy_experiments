@@ -1,13 +1,14 @@
 import time
 import sys
 import numpy as np
+import numba as nb
 
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 from intpy import initialize_intpy, deterministic
 
-@deterministic
+@nb.njit
 def median(vals):
     count = len(vals)
     if count == 1:
@@ -20,10 +21,6 @@ def median(vals):
         idx1 = idx2
     return int(vals[idx1]+vals[idx2])/2.0 
     
-   
- 
-
-@initialize_intpy(__file__)
 def main(vals):
     print(median(vals))
   
