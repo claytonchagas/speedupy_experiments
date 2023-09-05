@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import time
+import time, sys
 from intpy import deterministic,initialize_intpy
 
 from pathlib import Path
