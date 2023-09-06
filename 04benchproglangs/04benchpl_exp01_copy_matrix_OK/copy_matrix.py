@@ -10,7 +10,7 @@ from intpy import deterministic, initialize_intpy
 
 @deterministic
 def serial_copy(A,dimension):
-    B = np.random.rand(dimension, dimension, 3)
+    B = np.zeros((dimension, dimension, 3))
     N = A.shape[0]
     for i in range(N):
         for j in range(N):
@@ -21,7 +21,7 @@ def serial_copy(A,dimension):
 
 @deterministic
 def vector_copy(A,dimension):
-    B = np.random.rand(dimension, dimension, 3)
+    B = np.zeros((dimension, dimension, 3))
     B[:, :, 0] = A[:, :, 1]
     B[:, :, 2] = A[:, :, 0]
     B[:, :, 1] = A[:, :, 2]
