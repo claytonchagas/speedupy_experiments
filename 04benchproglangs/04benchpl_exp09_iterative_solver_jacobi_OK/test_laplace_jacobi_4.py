@@ -8,7 +8,7 @@ import time
 
 from intpy import initialize_intpy, deterministic
 
-@deterministic
+
 def loop_time_step(u):
     """
         Take a time step in the desired numerical solution 
@@ -62,7 +62,7 @@ def loop_solver(n):
 #---------------------------
 # Function: vector_time_step
 #---------------------------
-@deterministic
+
 def vector_time_step(u):
     """
         Take a time step in the desired numerical solution v 
