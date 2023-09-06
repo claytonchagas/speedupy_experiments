@@ -22,7 +22,6 @@ def main(n):
         x2 = x + .01*np.random.randn(x.size)
         p2 = f(np.round(x2,2))
         if (np.random.rand() < (p2/p)):
-            k+=1
             x = x2
             p = p2
     return x
