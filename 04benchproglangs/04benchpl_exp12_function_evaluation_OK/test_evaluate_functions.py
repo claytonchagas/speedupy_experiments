@@ -22,6 +22,7 @@ def evaluate_functions(n):
         vector1 = np.arccos(vector2)
         vector2 = np.tan(vector1)
         vector1 = np.arctan(vector2)
+    return vector1
 
 @initialize_intpy(__file__)
 def main(n):
