@@ -24,10 +24,8 @@ def raised_to(x):
     else:
         return x**x
 
-power_of_digits = [raised_to(i) for i in range(10)]
-
 @deterministic # mesmo usando essa variável global, achei o caso colocar @deterministc
-def is_munchausen_number(i):
+def is_munchausen_number(i,power_of_digits):
     return i == sum(power_of_digits[int(x)] for x in str(i))
 
 
@@ -35,10 +33,11 @@ def find_munchausen_numbers():
     """
         Find the 4 Munchausen numbers
     """
+    power_of_digits = [raised_to(i) for i in range(10)]
     number = 0
     i = 0
     while True:
-        if is_munchausen_number(i):
+        if is_munchausen_number(i,power_of_digits):
             number += 1
             print("Munchausen number %d: %d" % (number, i))
 
