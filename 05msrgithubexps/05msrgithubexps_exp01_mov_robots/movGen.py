@@ -34,7 +34,7 @@ def MovGen(n=100):
     for it in names:
         with open("./" + it, "w") as file:
             for t in names[it]:
-                n1, n2 = randint(1, 20), randint(50, 100)
+                n1, n2 = randint(1, n//2), randint(n//2, n)
                 movs = str(list(linspace(n1, n2, n).round(1)))[1:-2]
                 text = t + movs
                 file.write(text + "\n")
