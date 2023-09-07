@@ -28,8 +28,8 @@ def get_number_of_ones(n):
       Deterine the number of 1s ins the binary representation of
       and integer n.
     """
-    r=bin(n)
-    return r.count("1")
+    
+    return bin(n).count("1")
 
 
 @deterministic
