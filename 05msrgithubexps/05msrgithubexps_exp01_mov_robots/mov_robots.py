@@ -21,7 +21,6 @@ def readData(filename):
         content = [x.strip() for x in content]
         return content
 
-@deterministic
 def typeConverter(data, desiredType):
     """
     :param data: data to be converted
@@ -119,7 +118,6 @@ def finalPoseEstimation(pose, x_left_coordinates, y_left_coordinates, x_right_co
         #           y_right_coordinates)
         return X_final_pose_right, Y_final_pose_right
 
-@deterministic
 def finalVisualization(x_left_wheel_right, y_left_wheel_right, x_left_wheel_left, y_left_wheel_left,
                        x_left_wheel_straight, y_left_wheel_straight,
                        x_right_wheel_right, y_right_wheel_right, x_right_wheel_left, y_right_wheel_left,
