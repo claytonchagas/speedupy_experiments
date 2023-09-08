@@ -42,11 +42,7 @@ def main(rewards):
   
 
 if __name__ == "__main__":
-    n = (sys.argv[2:])
-    n.pop()
-    n.pop()
-    for i in range(len(n)):
-      n[i]=n[i][:-1]
+    n = [int(x) for x in sys.argv[1:-2]]
     start = time.perf_counter()
     main(n)
     print(time.perf_counter()-start)
