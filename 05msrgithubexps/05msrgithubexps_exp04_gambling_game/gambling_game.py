@@ -1,9 +1,14 @@
 import numpy as np
-import random, sys
+import random, sys,time
 from collections import deque
 import numpy as np
 import random
 
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).parent / "speedupy"))
+
+from intpy import initialize_intpy, deterministic
 
 suitDict = {"S": 0, "H": 1, "C": 2, "D": 3}
 
@@ -12,6 +17,7 @@ suitDict = {"S": 0, "H": 1, "C": 2, "D": 3}
 # Gets index of first occuring card in a hand (row-wise)
 
 
+@deterministic
 def getFirstCard(matrix, shp):
     for i in range(shp[0]):
         for j in range(shp[1]):
@@ -22,6 +28,7 @@ def getFirstCard(matrix, shp):
 # Gets all indexes of same value for same-value melds
 
 
+@deterministic
 def getSameValue(matrix, index):
     j = index[1]
     result = []
@@ -1238,8 +1245,8 @@ class AdvancedAgent(Player):  # TODO: override getDiscardChoice()
         except:
             return 0
 
-
-def teste(n1=1, n2=10):
+@initialize_intpy(__file__)
+def main(n1=1, n2=10):
     for s in range(n1, n1 + n2):
         GameMgr(s, gameMode="avb", verbose=0)
 
@@ -1252,12 +1259,13 @@ if __name__ == "__main__":
     """
     n1 = int(sys.argv[1])
     n2 = int(sys.argv[2])
-    teste(n1, n2)
-
+    t0 = time.perf_counter()
+    main(n1, n2)
+    print(time.perf_counter()-t0)
     """ Repository for general use"""
     # import argparse
     # import sys
-
+    
     # parser = argparse.ArgumentParser()
     # parser.add_argument('-seed', type=int, help='Seed to fix game(int)')
     # parser.add_argument('-gm', '--gameMode', default="pva", help='To set Game mode: pva, pvb, avb, bvb, ava, pvp')
