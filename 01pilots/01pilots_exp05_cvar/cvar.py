@@ -1,12 +1,13 @@
 import time
+import sys
 
 import numpy as np
 
 from pathlib import Path
-import sys
-sys.path.append(str(Path(__file__).parent.parent.parent))
+sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 from intpy import initialize_intpy, deterministic
+#from speedupy.intpy import initialize_intpy, deterministic
 
 
 @deterministic
@@ -32,8 +33,6 @@ def get_empirical_CVaR(rewards, alpha = 0.9):
         temp = a[:ind + 1]
 
     return (sum(temp) / len(temp))  
-    
-   
  
 
 @initialize_intpy(__file__)
