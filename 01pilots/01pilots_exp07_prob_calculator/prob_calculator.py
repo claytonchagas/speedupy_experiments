@@ -1,10 +1,13 @@
 import time
 import sys
+
+import random
+import copy
+
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
 from intpy import initialize_intpy, deterministic
-import random
-import copy
+
 
 class Hat:
     def __init__(self, **kwargs):
