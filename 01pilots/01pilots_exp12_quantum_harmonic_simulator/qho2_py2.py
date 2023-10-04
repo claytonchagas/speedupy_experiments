@@ -78,11 +78,8 @@ def hermite_functions(x,n):
 def main(x,n):
     t0 = time.time()
     hf = hermite_functions(x,2*n+1)
-    t1 = time.time()
-    C = coulomb_matrix(n)
-    t2 = time.time()
+    t1 = time.time()    
     print(t1-t0)
-    print(t2-t1)
 
 if __name__ == '__main__':
     length = int(sys.argv[1])
