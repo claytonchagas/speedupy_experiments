@@ -1,7 +1,9 @@
 from intpy import initialize_intpy, deterministic
-import time
-import sys
+import time, sys
 import itertools
+
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent))
 
 @deterministic
 def chunks(l):
