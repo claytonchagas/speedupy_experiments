@@ -15,7 +15,7 @@ def find_gc(seq):
     
 
 def main(seq):
-    print(find_gc(seq))
+    find_gc(seq)
   
 
 if __name__ == "__main__":
