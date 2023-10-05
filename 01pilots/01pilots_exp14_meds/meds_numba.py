@@ -6,8 +6,6 @@ import numba as nb
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
 
-from intpy import initialize_intpy, deterministic
-
 @nb.njit
 def median(vals):
     count = len(vals)
