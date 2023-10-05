@@ -23,7 +23,7 @@ def median(vals):
  
 
 def main(vals):
-    print(median(vals))
+    median(vals)
   
 
 if __name__ == "__main__":
