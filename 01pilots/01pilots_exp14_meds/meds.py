@@ -25,7 +25,7 @@ def median(vals):
 
 @initialize_intpy(__file__)
 def main(vals):
-    print(median(vals))
+    median(vals)
   
 
 if __name__ == "__main__":
