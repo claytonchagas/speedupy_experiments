@@ -24,7 +24,7 @@ def find_gc(seq: str) -> float:
 
 @initialize_intpy(__file__)
 def main(seq):
-    print(find_gc(seq))
+    find_gc(seq)
   
 
 if __name__ == "__main__":
