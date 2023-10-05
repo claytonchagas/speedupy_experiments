@@ -1,11 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import time, sys
-from intpy import deterministic, initialize_intpy
 
 from pathlib import Path
-
 sys.path.append(str(Path(__file__).parent / "speedupy"))
+from intpy import deterministic, initialize_intpy
 
 iteration = np.linspace(1, 20, 20)
 iteration = iteration[np.newaxis, :]
