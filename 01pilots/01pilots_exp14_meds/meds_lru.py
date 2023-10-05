@@ -6,8 +6,6 @@ from functools import lru_cache
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
 
-from intpy import initialize_intpy, deterministic
-
 @lru_cache(maxsize=100)
 def median(vals):
     count = len(vals)
