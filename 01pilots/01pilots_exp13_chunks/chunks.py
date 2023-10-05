@@ -1,9 +1,9 @@
-from intpy import initialize_intpy, deterministic
 import time, sys
 import itertools
 
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "speedupy"))
+from intpy import initialize_intpy, deterministic
 
 @deterministic
 def chunks(l):
