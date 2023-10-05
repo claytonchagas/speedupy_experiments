@@ -18,7 +18,7 @@ def median(vals):
     return int(vals[idx1]+vals[idx2])/2.0 
     
 def main(vals):
-    print median(vals)
+    median(vals)
   
 
 if __name__ == "__main__":
