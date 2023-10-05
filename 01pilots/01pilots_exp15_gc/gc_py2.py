@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).parent / "speedupy"))
 
 import time
 
-def find_gc(seq: str) -> float:
+def find_gc(seq):
     """ Calculate GC content """
 
     if not seq:
